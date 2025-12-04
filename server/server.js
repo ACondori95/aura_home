@@ -2,6 +2,11 @@ require("dotenv").config(); // Carga las variables de entorno al principio
 
 const express = require("express");
 const cors = require("cors");
+// Importar la función de conexión a la base de datos
+const connectDB = require("./config/db.js");
+
+// 1. Llamar a la función para conectar la DB
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
