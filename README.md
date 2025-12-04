@@ -6,16 +6,16 @@ Aura Home es una plataforma de comercio electrónico moderna y limpia, construid
 
 ## ⚙️ Stack Tecnológico
 
-- Backend (API): Node.js, Express
-- Base de Datos: MongoDB (a través de Mongoose)
-- Autenticación: JSON Web Tokens (JWT)
-- Validación de Esquemas: Joí
-- Almacenamiento de Imágenes: Cloudinary
-- Pasarela de Pagos: Mercado Pago (SDK/API Gateway)
-- Frontend (Cliente): React (con Vite)
-- Manejo de Estado: Context API
-- Estilos: Tailwind CSS
-- Librerías de UI: react-router-dom, axios, react-toastify (para notificaciones)
+- **Backend (API):** Node.js, Express
+- **Base de Datos:** MongoDB (a través de Mongoose)
+- **Autenticación:** JSON Web Tokens (JWT)
+- **Validación de Esquemas:** Joí
+- **Almacenamiento de Imágenes:** Cloudinary
+- **Pasarela de Pagos:** Mercado Pago (SDK/API Gateway)
+- **Frontend (Cliente):** React (con Vite)
+- **Manejo de Estado:** Context API
+- **Estilos:** Tailwind CSS
+- **Librerías de UI:** react-router-dom, axios, react-toastify (para notificaciones)
 
 ## 📂 Estructura del Proyecto
 
