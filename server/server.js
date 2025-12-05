@@ -8,6 +8,8 @@ const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/auth.routes.js");
 // Importar la nueva ruta de usuario
 const userRoutes = require("./routes/user.routes.js");
+// Importar la nueva ruta de subida
+const uploadRoutes = require("./routes/upload.routes");
 
 // Llamar a la función para conectar la DB
 connectDB();
@@ -24,6 +26,9 @@ app.use("/api/auth", authRoutes); // Todas las rutas de auth empiezan con /api/a
 
 // Integrar las rutas de Usuario (ej. Perfil)
 app.use("/api/users", userRoutes);
+
+// Integrar las rutas de Subida de Archivos
+app.use("/api/upload", uploadRoutes);
 
 // RUTA DE PRUEBA (Health Check)
 app.get("/", (req, res) => {
