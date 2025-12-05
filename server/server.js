@@ -9,7 +9,9 @@ const authRoutes = require("./routes/auth.routes.js");
 // Importar la nueva ruta de usuario
 const userRoutes = require("./routes/user.routes.js");
 // Importar la nueva ruta de subida
-const uploadRoutes = require("./routes/upload.routes");
+const uploadRoutes = require("./routes/upload.routes.js");
+// Importar la nueva ruta de productos
+const productRoutes = require("./routes/product.routes.js");
 
 // Llamar a la función para conectar la DB
 connectDB();
@@ -29,6 +31,9 @@ app.use("/api/users", userRoutes);
 
 // Integrar las rutas de Subida de Archivos
 app.use("/api/upload", uploadRoutes);
+
+// Integrar las rutas de Productos
+app.use("/api/products", productRoutes);
 
 // RUTA DE PRUEBA (Health Check)
 app.get("/", (req, res) => {
