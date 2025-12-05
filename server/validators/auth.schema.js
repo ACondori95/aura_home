@@ -16,7 +16,7 @@ const registerSchema = Joi.object({
       "string.email": "Debe ser un email válido",
     }),
 
-  password: Joi.string().min(6).required().message({
+  password: Joi.string().min(6).required().messages({
     "string.empty": "La contraseña es obligatoria",
     "string.min": "La contraseña debe tener al menos 6 caracteres",
   }),
