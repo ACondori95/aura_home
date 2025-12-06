@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import Header from "./components/common/Header";
 import ProtectedRoutes from "./components/common/ProtectedRoutes";
 import Footer from "./components/common/Footer";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Routes>
             {/* Rutas Públicas */}
             <Route path='/' element={<HomePage />} />
-            <Route path='/login' element={<div>Login Page</div>} />
+            <Route path='/login' element={<LoginPage />} />
             <Route path='*' element={<div>Error 404 - Not Found</div>} />
 
             {/* Rutas Protegidas para USUARIOS (Rol 'user' o 'admin') */}
