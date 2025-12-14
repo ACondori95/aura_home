@@ -187,7 +187,7 @@ const addAddress = async (req, res) => {
  * @route  DELETE /api/auth/profile/addresses/:addressId
  * @access Private
  */
-const deleteAccess = async (req, res) => {
+const deleteAddress = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
 
@@ -296,7 +296,7 @@ module.exports = {
   getProfile,
   updateProfile,
   addAddress,
-  deleteAccess,
+  deleteAddress,
   toggleFavorite,
   getFavorites,
 };
