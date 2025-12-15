@@ -1,11 +1,14 @@
 /**
  * Generic validation middleware
  * @param {Object} schema - Joi validation schema
+ * @param {String} source - Where to validate from ('body', 'query', 'params')
  * @returns {Function} - Express middleware
  */
-const validate = (schema) => {
+const validate = (schema, source = "body") => {
   return (req, res, next) => {
-    const {error, value} = schema.validate(req.body, {
+    const dataToValidate = req[source];
+
+    const {error, value} = schema.validate(dataToValidate, {
       abortEarly: false, // Return all errors, not just the first one
       stripUnknown: true, // Remove unknown fields
     });
@@ -16,11 +19,13 @@ const validate = (schema) => {
         message: detail.message,
       }));
 
-      return res.status(400).json({error: "Validation error", details: errors});
+      return res
+        .status(400)
+        .json({error: "Error de validación", details: errors});
     }
 
     // Replace req.body with validated and sanitized data
-    req.body = value;
+    req[source] = value;
     next();
   };
 };

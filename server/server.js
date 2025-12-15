@@ -35,6 +35,8 @@ app.get("/api/health", (req, res) => {
 
 // API Routes
 app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/products", require("./routes/productRoutes"));
+app.use("/api/categories", require("./routes/categoryRoutes"));
 
 // 404 handler (must be after all routes)
 app.use(notFound);
@@ -43,7 +45,21 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(config.PORT, () => {
-  console.log(`🚀 Server running on port ${config.PORT}`);
-  console.log(`📦 Environment: ${config.NODE_ENV}`);
-  console.log(`🔗 API URL: http://localhost:${config.PORT}/api`);
+  console.log("═══════════════════════════════════════════════════");
+  console.log("🏠  AURA HOME API");
+  console.log("═══════════════════════════════════════════════════");
+  console.log(`🚀  Server running on port ${config.PORT}`);
+  console.log(`📦  Environment: ${config.NODE_ENV}`);
+  console.log(`🔗  API URL: http://localhost:${config.PORT}/api`);
+  console.log(`🏥  Health: http://localhost:${config.PORT}/api/health`);
+  console.log("═══════════════════════════════════════════════════");
+  console.log("📋  Available Routes:");
+  console.log("    - POST   /api/auth/register");
+  console.log("    - POST   /api/auth/login");
+  console.log("    - GET    /api/auth/profile");
+  console.log("    - GET    /api/products");
+  console.log("    - POST   /api/products (Admin)");
+  console.log("    - GET    /api/categories");
+  console.log("    - POST   /api/categories (Admin)");
+  console.log("═══════════════════════════════════════════════════");
 });
