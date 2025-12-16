@@ -1,7 +1,21 @@
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import PrivateRoute from "./routes/PrivateRoute";
+import AdminRoute from "./routes/AdminRoute";
+
+// Public Pages
+import HomePage from "./pages/public/HomePage";
 import LoginPage from "./pages/public/LoginPage";
+import NotFoundPage from "./pages/public/NotFoundPage";
+
+// User Pages
+import UserProfilePage from "./pages/user/UserProfilePage";
+import FavoritesPage from "./pages/user/FavoritesPage";
+
+// Admin Pages
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
 import "./index.css";
 
 function App() {
@@ -12,20 +26,40 @@ function App() {
 
         <main className='flex-grow'>
           <Routes>
+            {/* Public Routes */}
+            <Route path='/' element={<HomePage />} />
+            <Route path='/login' element={<LoginPage />} />
+
+            {/* Protected User Routes */}
             <Route
-              path='/'
+              path='/perfil'
               element={
-                <div className='container mx-auto px-4 py-8 text-center'>
-                  <h1 className='text-4xl font-bold text-primary mb-4'>
-                    Bienvenido a AURA HOME
-                  </h1>
-                  <p className='text-xl text-text-secondary'>
-                    Sistema de autenticación completado ✓
-                  </p>
-                </div>
+                <PrivateRoute>
+                  <UserProfilePage />
+                </PrivateRoute>
               }
             />
-            <Route path='/login' element={<LoginPage />} />
+            <Route
+              path='/favoritos'
+              element={
+                <PrivateRoute>
+                  <FavoritesPage />
+                </PrivateRoute>
+              }
+            />
+
+            {/* Protected Admin Routes */}
+            <Route
+              path='/admin'
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              }
+            />
+
+            {/* 404 Route */}
+            <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </main>
 
